@@ -176,10 +176,12 @@
         .join("");
     });
 
-    emailField.addEventListener("focus", function () {
-      if (this.value !== "") {
+    setInterval(function () {
+      if (emailField.value !== "") {
         emailField.classList.add("filled");
+      } else {
+        emailField.classList.remove("filled");
       }
-    });
+    }, 50);
   </script>
 </html>
