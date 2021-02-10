@@ -19,7 +19,7 @@
       <h1 class="title">Login</h1>
       <form>
         <div class="form-control">
-          <input class="input" type="text" required id="email" />
+          <input class="input" type="email" required id="email" />
           <label class="label" for="email">E-mail</label>
         </div>
         <div class="form-control">
@@ -155,7 +155,8 @@
 
     .form-control input:focus + label span,
     .form-control input:valid + label span,
-    .form-control input[value] + label span {
+    .form-control input[value] + label span,
+    .form-control .filled + label span {
       color: #00a048;
       transform: translateY(-30px);
     }
@@ -163,6 +164,7 @@
 
   <script>
     const labels = document.querySelectorAll(".label");
+    const emailField = document.getElementById("email");
 
     labels.forEach((label) => {
       label.innerHTML = label.innerText
@@ -172,6 +174,12 @@
             `<span style="transition-delay: ${idx * 50}ms">${letter}</span>`
         )
         .join("");
+    });
+
+    emailField.addEventListener("focus", function () {
+      if (this.value !== "") {
+        emailField.classList.add("filled");
+      }
     });
   </script>
 </html>
