@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <h1 class="title">Login</h1>
+      <form>
+        <div class="form-control">
+          <input class="input" type="email" required id="email" />
+          <label class="label" for="email">E-mail</label>
+        </div>
+        <div class="form-control">
+          <input class="input" type="password" required id="password" />
+          <label class="label" for="password">Password</label>
+        </div>
+
+        <button class="login-btn">Login</button>
+
+        <a href="#" class="register-link">Don't have account yet?</a>
+      </form>
+    </div>
+  </body>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 350px;
+      height: 404px;
+      background: #ffffff;
+      box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.25);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .title {
+      font-size: 24px;
+      font-family: "Raleway";
+      letter-spacing: 1px;
+      margin-bottom: 50px;
+    }
+
+    .title::after {
+      content: "";
+      display: block;
+      width: 100%;
+      transform: scaleX(1.2);
+      height: 3px;
+      background: linear-gradient(90deg, #2fbd6f 0%, #a3f57a 100%);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-control {
+      position: relative;
+      margin: 20px 0;
+      width: 180px;
+    }
+
+    .form-control::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #2fbd6f 0%, #a3f57a 100%);
+    }
+
+    .input {
+      background: transparent;
+      border: none;
+      width: 100%;
+      font-family: "Montserrat";
+      font-size: 18px;
+    }
+
+    .label {
+      font-family: "Montserrat";
+      font-size: 18px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .input:focus,
+    .input:valid,
+    .input:invalid {
+      outline: 0;
+      border: none;
+    }
+
+    .login-btn {
+      cursor: pointer;
+      background: linear-gradient(90deg, #2fbd6f 0%, #a3f57a 100%);
+      box-shadow: 0px 0px 10px 2px #a3f57a;
+      border-radius: 50px;
+      width: 150px;
+      height: 50px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-family: "Montserrat";
+      text-transform: uppercase;
+      transition: 0.3s ease;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    .login-btn:hover {
+      box-shadow: 0px 0px 10px 5px #a3f57a;
+    }
+
+    .register-link {
+      font-size: 12px;
+      font-family: "Montserrat";
+      color: #00a048;
+    }
+
+    .label span {
+      display: inline-block;
+      transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .form-control input:focus + label span,
+    .form-control input:valid + label span {
+      color: #00a048;
+      transform: translateY(-30px);
+    }
+  </style>
+
+  <script>
+    const labels = document.querySelectorAll(".label");
+
+    labels.forEach((label) => {
+      label.innerHTML = label.innerText
+        .split("")
+        .map(
+          (letter, idx) =>
+            `<span style="transition-delay: ${idx * 50}ms">${letter}</span>`
+        )
+        .join("");
+    });
+  </script>
+</html>
